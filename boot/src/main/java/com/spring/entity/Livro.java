@@ -1,8 +1,13 @@
 package com.spring.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
 public class Livro {
 
     @Id
@@ -15,7 +20,7 @@ public class Livro {
     @Column(name="isbn", nullable=false, unique=true)
     private String isbn;
 
-    @Column(name="autor", nullable=false)
+    @Column(name="autor", nullable=true)
     private String autor;
 
     @Column(name="description", nullable=true)
@@ -24,32 +29,4 @@ public class Livro {
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public String getTitulo() {
-        return titulo;
-    }
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-    public String getIsbn() {
-        return isbn;
-    }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-    public String getAutor() {
-        return autor;
-    }
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
 }

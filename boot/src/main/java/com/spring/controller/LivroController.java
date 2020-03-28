@@ -13,21 +13,16 @@ import java.util.List;
 @RequestMapping("livro")
 public class LivroController {
 
+    @Autowired
     private LivroRepository livroRepository;
 
-    @Autowired
-    public LivroController( LivroRepository livroRepository) {
-        this.livroRepository = livroRepository;
-    }
-
-    @GetMapping
+    @GetMapping(value = "/")
     public List<Livro> listar(){
         return livroRepository.findAll();
     }
 
     @PostMapping(value = "/")
-    public String adicionaLivroAutor(@PathVariable("autor") String autor, Livro livro) {
-        livro.setAutor(autor);
+    public String adicionaLivroAutor(@RequestBody Livro livro) {
         livroRepository.save(livro);
         return "redirect:/";
     }
